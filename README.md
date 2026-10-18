@@ -1,12 +1,12 @@
 # BrightSteps English
 
-A responsive English practice website for elementary and middle school learners. It includes a dashboard, searchable lesson library, vocabulary, multiple-choice and fill-in-the-blank style activities, reading, listening, video comprehension, answer explanations, score calculation, and progress tracking.
+A responsive English practice website for elementary and middle school learners. It includes a dashboard, searchable lesson library, 16 short quizzes, vocabulary, grammar, multiple-choice and fill-in-the-blank activities, reading, listening, video comprehension, answer explanations, score calculation, and progress tracking.
 
 ## Architecture
 
 - **Frontend:** React 18 + Vite. Static build output goes to `dist/` and is hosted by Vercel Hobby. `vercel.json` routes page requests back to the single-page app.
 - **Authentication and progress:** Supabase Auth and Postgres via `@supabase/supabase-js`. Only the Supabase project URL and public anon/publishable key are used in the browser. Row Level Security limits profiles and learning records to their owner.
-- **Lesson content:** The six starter lessons are bundled in `src/main.jsx`, so practice works without a Supabase project. The SQL migration includes public content tables for future content management; the current app does not read lesson content from those tables.
+- **Lesson content:** All 16 starter lessons are bundled in `src/main.jsx`, so practice works without a Supabase project. The SQL migration includes public content tables for future content management; the current app does not read lesson content from those tables.
 - **Media:** Listening uses the browser's built-in English speech synthesis. The video activity links to the public MDN sample flower video and offers a text fallback if the host is unavailable. No student media is uploaded.
 
 ## Run locally
@@ -29,13 +29,7 @@ npm run preview
 
 ## Supabase setup
 
-1. Create a Supabase project on the Free plan. Do not add a payment method or upgrade.
-2. In **Project Settings → API**, copy the Project URL and the public anon/publishable key. Never use a `service_role` key in this app.
-3. In **SQL Editor**, run [`supabase/migrations/202610180001_initial_schema.sql`](supabase/migrations/202610180001_initial_schema.sql).
-4. In **Authentication → Providers → Email**, leave email/password enabled. Set the email confirmation behavior you want. For a school/child audience, have a parent or teacher supervise registration and choose an appropriate confirmation process.
-5. In **Authentication → URL Configuration**, set Site URL to your deployed `https://<your-project>.vercel.app`. Add Redirect URLs `http://localhost:5173/**` and `https://<your-project>.vercel.app/**`. If using Vercel preview deployments, add a narrowly scoped pattern for your account, for example `https://*-<your-vercel-account>.vercel.app/**`.
-6. In **Authentication → Email Templates**, ensure the confirmation link uses the redirect destination so it returns to the app.
-7. For local Supabase mode, set `.env.local` from `.env.example`. Keep `.env.local` private; it is ignored by Git.
+Follow the detailed [Supabase step-by-step guide](docs/SUPABASE_SETUP.md). In brief: create a Free project, run the included SQL migration, add the Project URL and publishable key to local/Vercel environment settings, and configure Auth redirects after Vercel gives you the production URL.
 
 The schema creates `profiles`, `lessons`, `exercises`, `quiz_attempts`, and `student_progress`. RLS is enabled on every table. Students can read/update their own profile and progress, insert/read their own quiz attempts, and read only published lesson content. There are no client policies for lesson/exercise writes or deletes and no student role column. Admin/content changes must be made through the Supabase dashboard or a trusted server-side tool, never by exposing a service-role key in the frontend.
 
@@ -44,10 +38,10 @@ The schema creates `profiles`, `lessons`, `exercises`, `quiz_attempts`, and `stu
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `VITE_SUPABASE_URL` | For accounts | Supabase Project URL |
-| `VITE_SUPABASE_ANON_KEY` | For accounts | Supabase public anon/publishable key; safe for browser use only with RLS enabled |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | For accounts | Supabase public publishable key (`sb_publishable_…`); safe for browser use only with RLS enabled |
 | `VITE_SITE_URL` | Recommended | Current app URL used for email confirmation redirects; local example is `http://localhost:5173` |
 
-Vite embeds `VITE_*` values in public browser code. Never place a service-role key, database password, or other secret in any `VITE_*` variable.
+Vite embeds `VITE_*` values in public browser code. Never place a Supabase secret key (`sb_secret_…`), legacy `service_role` key, database password, or other secret in any `VITE_*` variable. For compatibility, the app also recognizes `VITE_SUPABASE_ANON_KEY` if you already set it, but new projects should use the publishable key.
 
 ## GitHub and Vercel deployment
 
