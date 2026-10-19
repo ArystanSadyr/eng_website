@@ -7,7 +7,7 @@ A responsive English practice website for elementary and middle school learners.
 - **Frontend:** React 18 + Vite. Static build output goes to `dist/` and is hosted by Vercel Hobby. `vercel.json` routes page requests back to the single-page app.
 - **Authentication and progress:** Supabase Auth and Postgres via `@supabase/supabase-js`. Only the Supabase project URL and public anon/publishable key are used in the browser. Row Level Security limits profiles and learning records to their owner.
 - **Lesson content:** All 26 lessons are bundled in `src/main.jsx`, so practice works without a Supabase project. The ten Grade 3–4 sets are original practice inspired by the publisher's listed themes and are not copied workbook questions. The SQL migration includes public content tables for future content management; the current app does not read lesson content from those tables.
-- **Media:** Listening uses the browser's built-in English speech synthesis. The video activity links to the public MDN sample flower video and offers a text fallback if the host is unavailable. No student media is uploaded.
+- **Media:** Listening uses the browser's English speech synthesis, preferring installed natural/online English voices when available. Learners can choose another installed English voice in a lesson; their choice is saved on that device. Voice availability and sound quality depend on the browser and operating system. The video activity links to the public MDN sample flower video and offers a text fallback if the host is unavailable. No student media is uploaded.
 
 ## Run locally
 

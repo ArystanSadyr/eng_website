@@ -696,10 +696,39 @@ function App() {
   const [choiceLanguage, setChoiceLanguage] = useState(() => {
     try { return localStorage.getItem("brightsteps-choice-language") || "en"; } catch { return "en"; }
   });
+  const [speechVoices, setSpeechVoices] = useState([]);
+  const [speechVoiceURI, setSpeechVoiceURI] = useState(() => {
+    try { return localStorage.getItem("brightsteps-speech-voice") || ""; } catch { return ""; }
+  });
   const t = (text) => uiText[choiceLanguage]?.[text] || text;
   useEffect(() => {
     try { localStorage.setItem("brightsteps-choice-language", choiceLanguage); } catch { /* storage may be disabled */ }
   }, [choiceLanguage]);
+  useEffect(() => {
+    if (!("speechSynthesis" in window)) return undefined;
+    const refreshVoices = () => {
+      const voices = window.speechSynthesis.getVoices()
+        .filter((voice) => /^en[-_]/i.test(voice.lang))
+        .sort((a, b) => {
+          const rank = (voice) => {
+            const name = voice.name.toLowerCase();
+            if (/natural|online/.test(name)) return 5;
+            if (/aria|jenny|guy|google us english/.test(name)) return 4;
+            if (/en-us/.test(voice.lang.toLowerCase())) return 3;
+            if (/en-gb/.test(voice.lang.toLowerCase())) return 2;
+            return 1;
+          };
+          return rank(b) - rank(a);
+        });
+      setSpeechVoices(voices);
+    };
+    refreshVoices();
+    window.speechSynthesis.addEventListener("voiceschanged", refreshVoices);
+    return () => window.speechSynthesis.removeEventListener("voiceschanged", refreshVoices);
+  }, []);
+  useEffect(() => {
+    try { localStorage.setItem("brightsteps-speech-voice", speechVoiceURI); } catch { /* storage may be disabled */ }
+  }, [speechVoiceURI]);
   useEffect(() => {
     if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => {
@@ -785,8 +814,15 @@ function App() {
     }
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US";
-    u.rate = 0.82;
+    const voice = speechVoices.find((item) => item.voiceURI === speechVoiceURI) || speechVoices[0];
+    if (voice) {
+      u.voice = voice;
+      u.lang = voice.lang;
+    } else {
+      u.lang = "en-US";
+    }
+    u.rate = 0.9;
+    u.pitch = 1;
     window.speechSynthesis.speak(u);
   };
   const isCorrect = (question, answer) =>
@@ -1349,6 +1385,15 @@ function App() {
                   </div>
                   <span className="lesson-level">{t(active.level)}</span>
                 </div>
+                {speechVoices.length > 1 && (
+                  <label className="speech-voice-control">
+                    <span>{t("English voice")}</span>
+                    <select aria-label={t("English voice")} value={speechVoiceURI} onChange={(event) => setSpeechVoiceURI(event.target.value)}>
+                      <option value="">{t("Best available voice")}</option>
+                      {speechVoices.map((voice) => <option key={voice.voiceURI} value={voice.voiceURI}>{voice.name} ({voice.lang})</option>)}
+                    </select>
+                  </label>
+                )}
                 <div className="step-track">
                   <span>
                     {t("Question")} {step + 1} {t("of")} {active.questions.length}

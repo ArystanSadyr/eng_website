@@ -1,6 +1,6 @@
 const interfaceTranslations = {
   ru: {
-    Choices: "Язык интерфейса", Language: "Язык", "Display name": "Имя", "Email address": "Электронная почта", Password: "Пароль", Home: "Главная", Lessons: "Уроки", "My progress": "Мой прогресс", "Sign out": "Выйти", "Create account": "Создать аккаунт",
+    Choices: "Язык интерфейса", Language: "Язык", "English voice": "Английский голос", "Best available voice": "Лучший доступный голос", "Display name": "Имя", "Email address": "Электронная почта", Password: "Пароль", Home: "Главная", Lessons: "Уроки", "My progress": "Мой прогресс", "Sign out": "Выйти", "Create account": "Создать аккаунт",
     "YOUR SPACE": "МОЁ ПРОСТРАНСТВО", "Little steps add up!": "Маленькие шаги важны!", "Try one short lesson today.": "Пройди сегодня один короткий урок.",
     "Your learning space": "Ваше учебное пространство", "Student account": "Аккаунт ученика", "My account": "Мой аккаунт", "My space": "Мой профиль", "Guest learner": "Гость",
     "English club": "Английский клуб", "Your dashboard": "Моя страница", "Lesson library": "Библиотека уроков", "YOUR ENGLISH ADVENTURE": "ТВОЁ ПРИКЛЮЧЕНИЕ В АНГЛИЙСКОМ",
@@ -19,7 +19,7 @@ const interfaceTranslations = {
     "Use a nickname. For children, set up accounts with a parent or teacher.": "Используй прозвище. Детям аккаунт помогает создать взрослый.", "ENGLISH CLUB": "АНГЛИЙСКИЙ КЛУБ", "Start your streak": "Начни серию занятий", "day learning": "день занятий", "days learning": "дней занятий", "Explore lessons": "Все уроки", "Create a student account to sync learning across devices.": "Создай аккаунт ученика, чтобы синхронизировать прогресс.", "Choose another lesson": "Выбрать другой урок", "You finished": "Ты завершил", "Every try helps you learn.": "Каждая попытка помогает учиться.", "lessons completed": "уроков пройдено", "Question": "Вопрос", "of": "из", "min": "мин", "DONE": "ГОТОВО", "Toggle menu": "Открыть меню", "Beginner": "Начальный", "Vocabulary": "Слова", "Reading": "Чтение", "Listening": "Аудирование", "Grammar": "Грамматика", "Fill in the blank": "Вставь слово", "Spelling": "Правописание",
   },
   kk: {
-    Choices: "Интерфейс тілі", Language: "Тіл", "Display name": "Есімі", "Email address": "Электрондық пошта", Password: "Құпиясөз", Home: "Басты бет", Lessons: "Сабақтар", "My progress": "Менің жетістігім", "Sign out": "Шығу", "Create account": "Тіркелгі ашу",
+    Choices: "Интерфейс тілі", Language: "Тіл", "English voice": "Ағылшын дауысы", "Best available voice": "Ең жақсы қолжетімді дауыс", "Display name": "Есімі", "Email address": "Электрондық пошта", Password: "Құпиясөз", Home: "Басты бет", Lessons: "Сабақтар", "My progress": "Менің жетістігім", "Sign out": "Шығу", "Create account": "Тіркелгі ашу",
     "YOUR SPACE": "СЕНІҢ ОРНЫҢ", "Little steps add up!": "Кішкентай қадамдар маңызды!", "Try one short lesson today.": "Бүгін бір қысқа сабақ оқы.",
     "Your learning space": "Оқу кеңістігің", "Student account": "Оқушы тіркелгісі", "My account": "Менің тіркелгім", "My space": "Менің парақшам", "Guest learner": "Қонақ оқушы",
     "English club": "Ағылшын клубы", "Your dashboard": "Менің бетім", "Lesson library": "Сабақтар жинағы", "YOUR ENGLISH ADVENTURE": "АҒЫЛШЫН ТІЛІНДЕГІ САЯХАТЫҢ",
