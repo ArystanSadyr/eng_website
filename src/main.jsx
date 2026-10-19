@@ -22,6 +22,7 @@ import {
   X,
 } from "lucide-react";
 import "./style.css";
+import { translateChoice, uiText } from "./translations.js";
 
 const env = import.meta.env;
 const supabaseKey =
@@ -562,6 +563,109 @@ const lessons = [
       },
     ],
   },
+  {
+    id: "g3-greetings-numbers", grade: "Grade 3", series: "Top Stars themes",
+    title: "Hello, friends!", category: "Listening", level: "Grade 3", minutes: 6, icon: "👋", color: "lavender",
+    description: "Listen for names, greetings and numbers in a new class.", words: ["hello", "classmate", "twelve"], type: "Listening & quiz",
+    script: "Hello! My name is Aida. I am nine years old. This is my friend Timur. He is ten. We are in Class 3A.",
+    questions: [
+      { q: "What is the girl's name?", choices: ["Aida", "Dana", "Mira"], answer: 0, explain: "She says, ‘My name is Aida.’" },
+      { q: "How old is Timur?", choices: ["Eight", "Ten", "Twelve"], answer: 1, explain: "Timur is ten years old." },
+      { q: "Which class are they in?", choices: ["Class 2A", "Class 3A", "Class 4A"], answer: 1, explain: "They are in Class 3A." },
+    ],
+  },
+  {
+    id: "g3-school-spelling", grade: "Grade 3", series: "Top Stars themes",
+    title: "Spell it at school", category: "Spelling", level: "Grade 3", minutes: 5, icon: "✏️", color: "yellow",
+    description: "Listen to a school word and spell it in English.", words: ["pencil", "ruler", "notebook"], type: "Listen & spell",
+    questions: [
+      { q: "Listen and spell the school object.", spelling: true, fillBlank: true, answerText: "pencil", explain: "P-E-N-C-I-L spells pencil." },
+      { q: "Listen and spell the school object.", spelling: true, fillBlank: true, answerText: "ruler", explain: "R-U-L-E-R spells ruler." },
+      { q: "Listen and spell the school object.", spelling: true, fillBlank: true, answerText: "notebook", explain: "N-O-T-E-B-O-O-K spells notebook." },
+    ],
+  },
+  {
+    id: "g3-family", grade: "Grade 3", series: "Top Stars themes",
+    title: "My lovely family", category: "Fill in the blank", level: "Grade 3", minutes: 6, icon: "👨‍👩‍👧", color: "peach",
+    description: "Complete simple sentences about family and friends.", words: ["mother", "brother", "friend"], type: "Grammar & writing",
+    questions: [
+      { q: "This is my ___. She is my mum.", fillBlank: true, answerText: "mother", explain: "Mother is another word for mum." },
+      { q: "I have one sister and two ___.", fillBlank: true, answerText: "brothers", explain: "The plural of brother is brothers." },
+      { q: "Ali is my good ___. We play together.", fillBlank: true, answerText: "friend", explain: "A friend is someone you like and spend time with." },
+    ],
+  },
+  {
+    id: "g3-actions", grade: "Grade 3", series: "Top Stars themes",
+    title: "What are they doing?", category: "Grammar", level: "Grade 3", minutes: 6, icon: "⚽", color: "mint",
+    description: "Choose the action that matches each clue.", words: ["running", "reading", "playing"], type: "Present continuous",
+    questions: [
+      { q: "Look! Dana ___ a book now.", choices: ["reads", "is reading", "read"], answer: 1, explain: "Use is + verb-ing for an action happening now." },
+      { q: "The boys ___ football at the moment.", choices: ["are playing", "plays", "played"], answer: 0, explain: "Boys is plural, so use are playing." },
+      { q: "I ___ to school now.", choices: ["am walking", "walks", "walked"], answer: 0, explain: "Use am + verb-ing with I for an action happening now." },
+    ],
+  },
+  {
+    id: "g3-food", grade: "Grade 3", series: "Top Stars themes",
+    title: "A tasty lunch", category: "Vocabulary", level: "Grade 3", minutes: 5, icon: "🥪", color: "peach",
+    description: "Learn food words and complete simple meal sentences.", words: ["bread", "cheese", "apple"], type: "Food & fill-in",
+    questions: [
+      { q: "I eat soup with a ___.", choices: ["spoon", "shoe", "pencil"], answer: 0, explain: "We eat soup with a spoon." },
+      { q: "An ___ is a fruit. Choose the correct word.", fillBlank: true, answerText: "apple", explain: "Apple begins with a vowel sound, so we say an apple." },
+      { q: "For a sandwich, I put cheese between two slices of ___.", fillBlank: true, answerText: "bread", explain: "A sandwich often has filling between slices of bread." },
+    ],
+  },
+  {
+    id: "g4-routine", grade: "Grade 4", series: "Top Stars themes",
+    title: "My daily routine", category: "Reading", level: "Grade 4", minutes: 7, icon: "⏰", color: "yellow",
+    description: "Read about a school day and practise present simple and time.", words: ["usually", "breakfast", "often"], type: "Reading & grammar",
+    passage: "Arman usually gets up at seven. He has breakfast with his family and walks to school. After school, he often plays outside. He goes to bed at nine o’clock.",
+    questions: [
+      { q: "What time does Arman usually get up?", choices: ["At six", "At seven", "At eight"], answer: 1, explain: "He gets up at seven." },
+      { q: "Arman ___ breakfast with his family.", fillBlank: true, answerText: "has", explain: "With he, she or it, have changes to has." },
+      { q: "What does he often do after school?", choices: ["Plays outside", "Goes to bed", "Has breakfast"], answer: 0, explain: "He often plays outside after school." },
+    ],
+  },
+  {
+    id: "g4-family-friends", grade: "Grade 4", series: "Top Stars themes",
+    title: "Family and friends", category: "Grammar", level: "Grade 4", minutes: 6, icon: "🧑‍🤝‍🧑", color: "pink",
+    description: "Practise possessives, people words and describing friends.", words: ["whose", "friendly", "cousin"], type: "Grammar & vocabulary",
+    questions: [
+      { q: "This is Aigerim. ___ brother is eleven.", choices: ["Her", "She", "Hers"], answer: 0, explain: "Her shows that the brother belongs to Aigerim." },
+      { q: "___ bag is this? It is Daniyar’s.", choices: ["Who", "Whose", "Where"], answer: 1, explain: "Whose asks who something belongs to." },
+      { q: "My friends are kind. They are very ___.", fillBlank: true, answerText: "friendly", explain: "Friendly means kind and pleasant to other people." },
+    ],
+  },
+  {
+    id: "g4-hobbies", grade: "Grade 4", series: "Top Stars themes",
+    title: "Hobbies and sports", category: "Fill in the blank", level: "Grade 4", minutes: 6, icon: "🏸", color: "blue",
+    description: "Talk about hobbies with like, enjoy and action words.", words: ["badminton", "painting", "cycling"], type: "Hobbies & grammar",
+    questions: [
+      { q: "I enjoy ___ pictures in my free time.", fillBlank: true, answerText: "painting", explain: "After enjoy, use the -ing form of a verb." },
+      { q: "My sister likes ___ her bike in the park.", fillBlank: true, answerText: "riding", explain: "After likes, use riding in this sentence." },
+      { q: "Which item do you need to play badminton?", choices: ["A racket", "A paintbrush", "A drum"], answer: 0, explain: "Players use a racket to hit the shuttlecock." },
+    ],
+  },
+  {
+    id: "g4-jobs-listening", grade: "Grade 4", series: "Top Stars themes",
+    title: "People at work", category: "Listening", level: "Grade 4", minutes: 6, icon: "🧑‍⚕️", color: "lavender",
+    description: "Listen to a short interview about jobs in the community.", words: ["nurse", "farmer", "artist"], type: "Listening comprehension",
+    script: "My aunt is a nurse. She works at a clinic and helps people feel better. My uncle is a farmer. He grows vegetables on his farm.",
+    questions: [
+      { q: "What is the speaker’s aunt’s job?", choices: ["A nurse", "A farmer", "An artist"], answer: 0, explain: "The speaker says their aunt is a nurse." },
+      { q: "Where does the aunt work?", choices: ["At a clinic", "At a school", "At a shop"], answer: 0, explain: "She works at a clinic." },
+      { q: "What does the uncle grow?", choices: ["Flowers", "Vegetables", "Apples"], answer: 1, explain: "The farmer grows vegetables." },
+    ],
+  },
+  {
+    id: "g4-food-animals", grade: "Grade 4", series: "Top Stars themes",
+    title: "Food, animals and habitats", category: "Spelling", level: "Grade 4", minutes: 7, icon: "🐪", color: "mint",
+    description: "Spell food words, describe a habitat and learn about animals.", words: ["cheese", "desert", "camel"], type: "Spelling & grammar",
+    questions: [
+      { q: "Listen and spell this food word.", spelling: true, fillBlank: true, answerText: "cheese", explain: "C-H-E-E-S-E spells cheese." },
+      { q: "Camels can live in the ___.", fillBlank: true, answerText: "desert", explain: "A desert is a very dry habitat." },
+      { q: "There ___ two cats in the garden.", choices: ["is", "are", "am"], answer: 1, explain: "Use are with the plural noun cats." },
+    ],
+  },
 ];
 const loadLocal = () => {
   try {
@@ -588,6 +692,14 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [search, setSearch] = useState("");
+  const [selectedGrade, setSelectedGrade] = useState("All");
+  const [choiceLanguage, setChoiceLanguage] = useState(() => {
+    try { return localStorage.getItem("brightsteps-choice-language") || "en"; } catch { return "en"; }
+  });
+  const t = (text) => uiText[choiceLanguage]?.[text] || text;
+  useEffect(() => {
+    try { localStorage.setItem("brightsteps-choice-language", choiceLanguage); } catch { /* storage may be disabled */ }
+  }, [choiceLanguage]);
   useEffect(() => {
     if (!supabase) return;
     supabase.auth.getSession().then(({ data }) => {
@@ -650,11 +762,12 @@ function App() {
   const filtered = useMemo(
     () =>
       lessons.filter((l) =>
+        (selectedGrade === "All" || l.grade === selectedGrade) &&
         `${l.title} ${l.category} ${l.words.join(" ")}`
           .toLowerCase()
           .includes(search.toLowerCase()),
       ),
-    [search],
+    [search, selectedGrade],
   );
   const begin = (lesson) => {
     setActive(lesson);
@@ -678,7 +791,7 @@ function App() {
   };
   const isCorrect = (question, answer) =>
     question.fillBlank
-      ? String(answer).trim().toLowerCase() === question.answerText
+      ? String(answer).trim().toLowerCase() === question.answerText.toLowerCase()
       : answer === question.answer;
   const advance = async () => {
     if (picked === null || picked === "") return;
@@ -794,7 +907,7 @@ function App() {
         }}
       >
         <Home size={19} />
-        Home
+        {t("Home")}
       </button>
       <button
         className={page === "lessons" ? "navitem selected" : "navitem"}
@@ -804,7 +917,7 @@ function App() {
         }}
       >
         <BookOpen size={19} />
-        Lessons <span className="navcount">{lessons.length}</span>
+        {t("Lessons")} <span className="navcount">{lessons.length}</span>
       </button>
       <button
         className={page === "progress" ? "navitem selected" : "navitem"}
@@ -814,20 +927,20 @@ function App() {
         }}
       >
         <Trophy size={19} />
-        My progress
+        {t("My progress")}
       </button>
       <div className="navbottom">
         <div className="daily-card">
           <span className="daily-icon">✨</span>
           <div>
-            <b>Little steps add up!</b>
-            <p>Try one short lesson today.</p>
+            <b>{t("Little steps add up!")}</b>
+            <p>{t("Try one short lesson today.")}</p>
           </div>
         </div>
         {user ? (
           <button className="navitem logout" onClick={signOut}>
             <LogOut size={18} />
-            Sign out
+            {t("Sign out")}
           </button>
         ) : (
           <button
@@ -838,7 +951,7 @@ function App() {
             }}
           >
             <LockKeyhole size={18} />
-            Create account
+            {t("Create account")}
           </button>
         )}
       </div>
@@ -852,10 +965,10 @@ function App() {
             b<span>✦</span>
           </span>
           <span>
-            brightsteps<span className="brand-sub">ENGLISH CLUB</span>
+            brightsteps<span className="brand-sub">{t("ENGLISH CLUB")}</span>
           </span>
         </a>
-        <div className="nav-label">YOUR SPACE</div>
+        <div className="nav-label">{t("YOUR SPACE")}</div>
         <Nav />
         <div className="sidebar-foot">
           <span className="avatar">
@@ -869,9 +982,9 @@ function App() {
           </span>
           <div className="person">
             <b>
-              {profile?.display_name || (user ? "My account" : "Guest learner")}
+              {profile?.display_name || (user ? t("My account") : t("Guest learner"))}
             </b>
-            <span>{user ? "Student account" : "Your learning space"}</span>
+            <span>{user ? t("Student account") : t("Your learning space")}</span>
           </div>
           <ChevronRight size={17} color="#9aa2b7" />
         </div>
@@ -881,28 +994,34 @@ function App() {
           <button
             className="mobile-menu"
             onClick={() => setMobileNav(!mobileNav)}
-            aria-label="Toggle menu"
+            aria-label={t("Toggle menu")}
           >
             <Menu />
           </button>
           <div className="crumb">
-            English club <ChevronRight size={14} />{" "}
+            {t("English club")} <ChevronRight size={14} />{" "}
             <b>
               {page === "home"
-                ? "Your dashboard"
+                ? t("Your dashboard")
                 : page === "lessons"
-                  ? "Lesson library"
+                  ? t("Lesson library")
                   : page === "progress"
-                    ? "My progress"
+                    ? t("My progress")
                     : active?.title || "Lesson"}
             </b>
           </div>
           <div className="top-actions">
+            <label className="choice-language">
+              <span>{t("Language")}</span>
+              <select aria-label="Interface and answer choice language" value={choiceLanguage} onChange={(e) => setChoiceLanguage(e.target.value)}>
+                <option value="en">English</option><option value="kk">Қазақша</option><option value="ru">Русский</option>
+              </select>
+            </label>
             <span className="streak">
               <span>🔥</span>{" "}
               {completed
-                ? `${completed} day${completed === 1 ? "" : "s"} learning`
-                : "Start your streak"}
+                ? `${completed} ${t(completed === 1 ? "day learning" : "days learning")}`
+                : t("Start your streak")}
             </span>
             <button
               className="profile-btn"
@@ -915,7 +1034,7 @@ function App() {
               <span className="avatar small">
                 {user ? (profile?.display_name?.[0] || "S").toUpperCase() : "S"}
               </span>
-              <span>{profile?.display_name || "My space"}</span>
+              <span>{profile?.display_name || t("My space")}</span>
               <ChevronRight size={15} />
             </button>
           </div>
@@ -925,16 +1044,16 @@ function App() {
             <section className="welcome">
               <div className="welcome-copy">
                 <div className="eyebrow">
-                  <Sparkles size={15} /> YOUR ENGLISH ADVENTURE
+                  <Sparkles size={15} /> {t("YOUR ENGLISH ADVENTURE")}
                 </div>
                 <h1>
-                  Small steps.
+                  {t("Small steps.")}
                   <br />
-                  <span>Big confidence.</span>
+                  <span>{t("Big confidence.")}</span>
                 </h1>
                 <p>
-                  A little English practice every day goes a long way.
-                  <br className="desktop-only" /> Ready to learn something new?
+                  {t("A little English practice every day goes a long way.")}
+                  <br className="desktop-only" /> {t("Ready to learn something new?")}
                 </p>
                 <button
                   className="primary"
@@ -945,7 +1064,7 @@ function App() {
                     )
                   }
                 >
-                  Continue learning <ArrowRight size={17} />
+                  {t("Continue learning")} <ArrowRight size={17} />
                 </button>
                 <div className="welcome-stats">
                   <div>
@@ -953,7 +1072,7 @@ function App() {
                       {completed}
                       <small> / {lessons.length}</small>
                     </b>
-                    <span>lessons done</span>
+                    <span>{t("lessons done")}</span>
                   </div>
                   <i></i>
                   <div>
@@ -961,12 +1080,12 @@ function App() {
                       {totalStars}
                       <small> ✦</small>
                     </b>
-                    <span>stars earned</span>
+                    <span>{t("stars earned")}</span>
                   </div>
                   <i></i>
                   <div>
-                    <b>{user ? "Saved" : "Guest"}</b>
-                    <span>{user ? "progress synced" : "learning mode"}</span>
+                    <b>{t(user ? "Saved" : "Guest")}</b>
+                    <span>{t(user ? "progress synced" : "learning mode")}</span>
                   </div>
                 </div>
               </div>
@@ -989,19 +1108,19 @@ function App() {
                 <div className="hero-leaf leaf-one">✿</div>
                 <div className="hero-leaf leaf-two">✦</div>
                 <div className="hero-caption">
-                  Your next chapter
+                  {t("Your next chapter")}
                   <br />
-                  <b>starts right here</b>
+                  <b>{t("starts right here")}</b>
                 </div>
               </div>
             </section>
             <section className="section-head">
               <div>
-                <div className="eyebrow muted">PICK UP WHERE YOU LEFT OFF</div>
-                <h2>Ready when you are</h2>
+                <div className="eyebrow muted">{t("PICK UP WHERE YOU LEFT OFF")}</div>
+                <h2>{t("Ready when you are")}</h2>
               </div>
               <button className="text-link" onClick={() => setPage("lessons")}>
-                See all lessons <ArrowRight size={16} />
+                {t("See all lessons")} <ArrowRight size={16} />
               </button>
             </section>
             <div className="lesson-grid home-grid">
@@ -1010,6 +1129,7 @@ function App() {
                   key={l.id}
                   lesson={l}
                   completed={progress[l.id]?.completed}
+                  t={t}
                   onClick={() => begin(l)}
                 />
               ))}
@@ -1017,10 +1137,9 @@ function App() {
             <section className="tip-strip">
               <div className="tip-icon">💡</div>
               <div>
-                <b>Today's tiny tip</b>
+                <b>{t("Today's tiny tip")}</b>
                 <p>
-                  Say new words out loud. Speaking helps your brain remember
-                  them!
+                  {t("Say new words out loud. Speaking helps your brain remember them!")}
                 </p>
               </div>
               <button
@@ -1029,7 +1148,7 @@ function App() {
                     "Say new words out loud. Speaking helps your brain remember them!",
                   )
                 }
-                aria-label="Listen to today's tip"
+                aria-label={t("Listen to today's tip")}
               >
                 <Volume2 size={19} />
               </button>
@@ -1039,26 +1158,26 @@ function App() {
         {page === "lessons" && (
           <>
             <div className="page-intro">
-              <div className="eyebrow muted">YOUR ENGLISH TOOLBOX</div>
+              <div className="eyebrow muted">{t("YOUR ENGLISH TOOLBOX")}</div>
               <h1>
-                Lesson library <span className="intro-emoji">📚</span>
+                {t("Lesson library")} <span className="intro-emoji">📚</span>
               </h1>
-              <p>Choose a short activity and make today a little brighter.</p>
+              <p>{t("Choose a short activity and make today a little brighter.")}</p>
             </div>
             <label className="searchbox">
               <span>⌕</span>
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search lessons or topics…"
-                aria-label="Search lessons"
+                placeholder={t("Search lessons or topics…")}
+                aria-label={t("Search lessons or topics…")}
               />
               <kbd>⌘ K</kbd>
             </label>
             <div className="filters">
-              <span>ALL LESSONS</span>
-              <span className="filter-pill">{filtered.length} activities</span>
-              <span className="filter-pill">🎈 Beginner friendly</span>
+              <span>{t("GRADE")}</span>
+              {["All", "Grade 3", "Grade 4"].map((grade) => <button key={grade} className={"filter-pill " + (selectedGrade === grade ? "active" : "")} onClick={() => setSelectedGrade(grade)}>{t(grade)}</button>)}
+              <span className="filter-pill">{filtered.length} {t("activities")}</span>
             </div>
             <div className="lesson-grid">
               {filtered.map((l) => (
@@ -1066,23 +1185,24 @@ function App() {
                   key={l.id}
                   lesson={l}
                   completed={progress[l.id]?.completed}
+                  t={t}
                   onClick={() => begin(l)}
                 />
               ))}
             </div>
             {!filtered.length && (
-              <p className="empty">No lessons found. Try another word.</p>
+              <p className="empty">{t("No lessons found. Try another word.")}</p>
             )}
           </>
         )}
         {page === "progress" && (
           <>
             <div className="page-intro">
-              <div className="eyebrow muted">LOOK HOW FAR YOU'VE COME</div>
+              <div className="eyebrow muted">{t("LOOK HOW FAR YOU'VE COME")}</div>
               <h1>
-                Your progress <span className="intro-emoji">🏆</span>
+                {t("My progress")} <span className="intro-emoji">🏆</span>
               </h1>
-              <p>Every lesson is a little win. Keep collecting them!</p>
+              <p>{t("Every lesson is a little win. Keep collecting them!")}</p>
             </div>
             <div className="progress-overview">
               <div className="progress-big">
@@ -1096,30 +1216,30 @@ function App() {
                   </b>
                 </div>
                 <div>
-                  <b>You're growing!</b>
+                  <b>{t("You're growing!")}</b>
                   <p>
-                    {completed} of {lessons.length} lessons completed
+                    {completed} / {lessons.length} {t("lessons completed")}
                   </p>
                 </div>
               </div>
               <div className="score-tile">
                 <span>⭐</span>
                 <b>{totalStars}</b>
-                <small>stars collected</small>
+                <small>{t("stars collected")}</small>
               </div>
               <div className="score-tile">
                 <span>📖</span>
                 <b>{completed}</b>
-                <small>lessons finished</small>
+                <small>{t("lessons finished")}</small>
               </div>
             </div>
             <div className="section-head progress-head">
               <div>
-                <div className="eyebrow muted">YOUR LEARNING PATH</div>
-                <h2>Lessons</h2>
+                <div className="eyebrow muted">{t("YOUR LEARNING PATH")}</div>
+                <h2>{t("Lessons")}</h2>
               </div>
               <button className="text-link" onClick={() => setPage("lessons")}>
-                Explore lessons <ArrowRight size={16} />
+                {t("Explore lessons")} <ArrowRight size={16} />
               </button>
             </div>
             <div className="progress-list">
@@ -1135,7 +1255,7 @@ function App() {
                       {i + 1}. {l.title}
                     </b>
                     <small>
-                      {l.category} · {l.minutes} min
+                      {t(l.category)} · {l.minutes} {t("min")}
                     </small>
                   </span>
                   <span
@@ -1148,7 +1268,7 @@ function App() {
                         <CheckCircle2 size={16} /> {progress[l.id].score}%
                       </>
                     ) : (
-                      "Not started"
+                      t("Not started")
                     )}
                   </span>
                   <ChevronRight size={18} color="#aab0c0" />
@@ -1159,9 +1279,9 @@ function App() {
               <div className="sync-note">
                 <LockKeyhole size={19} />
                 <span>
-                  <b>Keep your progress safe</b>
+                  <b>{t("Keep your progress safe")}</b>
                   <small>
-                    Create a student account to sync learning across devices.
+                    {t("Create a student account to sync learning across devices.")}
                   </small>
                 </span>
                 <button
@@ -1171,7 +1291,7 @@ function App() {
                     setAuthOpen(true);
                   }}
                 >
-                  Create account
+                  {t("Create account")}
                 </button>
               </div>
             )}
@@ -1180,20 +1300,20 @@ function App() {
         {page === "lesson" && active && (
           <>
             <button className="back-link" onClick={() => setPage("lessons")}>
-              <ArrowLeft size={16} /> Back to lessons
+              <ArrowLeft size={16} /> {t("Back to lessons")}
             </button>
             {done ? (
               <div className="result-card">
                 <div className="result-confetti">🎉</div>
-                <div className="eyebrow muted">LESSON COMPLETE</div>
+                <div className="eyebrow muted">{t("LESSON COMPLETE")}</div>
                 <h1>
                   {answers.filter((a, i) => isCorrect(active.questions[i], a))
                     .length === active.questions.length
-                    ? "Wonderful work!"
-                    : "Great effort!"}
+                    ? t("Wonderful work!")
+                    : t("Great effort!")}
                 </h1>
                 <p>
-                  You finished <b>{active.title}</b>. Every try helps you learn.
+                  {t("You finished")} <b>{active.title}</b>. {t("Every try helps you learn.")}
                 </p>
                 <div className="result-score">
                   <strong>
@@ -1201,17 +1321,17 @@ function App() {
                       progress[active.id]?.score}
                     %
                   </strong>
-                  <span>your score</span>
+                  <span>{t("your score")}</span>
                 </div>
                 <div className="result-actions">
                   <button className="secondary" onClick={reset}>
-                    <RotateCcw size={17} /> Try again
+                    <RotateCcw size={17} /> {t("Try again")}
                   </button>
                   <button
                     className="primary"
                     onClick={() => setPage("lessons")}
                   >
-                    Choose another lesson <ArrowRight size={17} />
+                    {t("Choose another lesson")} <ArrowRight size={17} />
                   </button>
                 </div>
               </div>
@@ -1223,15 +1343,15 @@ function App() {
                   </span>
                   <div>
                     <div className="eyebrow muted">
-                      {active.category.toUpperCase()} · {active.minutes} MIN
+                      {t(active.category).toUpperCase()} · {active.minutes} {t("min").toUpperCase()}
                     </div>
                     <h1>{active.title}</h1>
                   </div>
-                  <span className="lesson-level">{active.level}</span>
+                  <span className="lesson-level">{t(active.level)}</span>
                 </div>
                 <div className="step-track">
                   <span>
-                    Question {step + 1} of {active.questions.length}
+                    {t("Question")} {step + 1} {t("of")} {active.questions.length}
                   </span>
                   <div className="track">
                     <i
@@ -1243,13 +1363,13 @@ function App() {
                 </div>
                 {step === 0 && active.passage && (
                   <div className="reading-box">
-                    <div className="eyebrow muted">READ THE STORY</div>
+                    <div className="eyebrow muted">{t("READ THE STORY")}</div>
                     <p>{active.passage}</p>
                     <button
                       className="listen-button"
                       onClick={() => speak(active.passage)}
                     >
-                      <Volume2 size={17} /> Listen to the story
+                      <Volume2 size={17} /> {t("Listen to the story")}
                     </button>
                   </div>
                 )}
@@ -1265,14 +1385,12 @@ function App() {
                         />
                       ))}
                     </div>
-                    <p>
-                      Listen to the weather report, then answer the questions.
-                    </p>
+                    <p>{t("Listen to the recording, then answer the questions.")}</p>
                     <button
                       className="primary"
                       onClick={() => speak(active.script)}
                     >
-                      <Play size={17} fill="currentColor" /> Play audio
+                      <Play size={17} fill="currentColor" /> {t("Play audio")}
                     </button>
                   </div>
                 )}
@@ -1283,7 +1401,7 @@ function App() {
                       playsInline
                       preload="metadata"
                       src={active.video}
-                      aria-label="Short flower growing video"
+                      aria-label={t("Short flower growing video")}
                     />
                     <p>
                       Watch the short video. If it doesn't load, try the
@@ -1306,6 +1424,11 @@ function App() {
                     Q{String(step + 1).padStart(2, "0")}
                   </div>
                   <h2>{active.questions[step].q}</h2>
+                  {active.questions[step].spelling && (
+                    <button className="listen-button spelling-listen" onClick={() => speak(active.questions[step].answerText)}>
+                      <Volume2 size={16} /> {t("Listen to the word")}
+                    </button>
+                  )}
                   {active.questions[step].fillBlank ? (
                     <input
                       className="fill-input"
@@ -1316,8 +1439,8 @@ function App() {
                       onKeyDown={(e) =>
                         e.key === "Enter" && !checked && advance()
                       }
-                      aria-label="Type the missing word"
-                      placeholder="Type the missing word…"
+                      aria-label={t("Type the missing word")}
+                      placeholder={t("Type the missing word…")}
                     />
                   ) : (
                     <div className="answers">
@@ -1329,7 +1452,7 @@ function App() {
                           onClick={() => setPicked(i)}
                         >
                           <span>{String.fromCharCode(65 + i)}</span>
-                          {choice}
+                          {translateChoice(choice, choiceLanguage)}
                           {checked && i === active.questions[step].answer && (
                             <Check size={17} />
                           )}
@@ -1343,8 +1466,8 @@ function App() {
                     >
                       <b>
                         {isCorrect(active.questions[step], picked)
-                          ? "That’s right!"
-                          : "Good try!"}
+                          ? t("That’s right!")
+                          : t("Good try!")}
                       </b>
                       <span>{active.questions[step].explain}</span>
                     </div>
@@ -1352,7 +1475,7 @@ function App() {
                 </div>
                 <div className="exercise-footer">
                   <span>
-                    <CircleHelp size={16} /> Take your time — you've got this!
+                    <CircleHelp size={16} /> {t("Take your time — you've got this!")}
                   </span>
                   <button
                     disabled={picked === null || picked === ""}
@@ -1361,9 +1484,9 @@ function App() {
                   >
                     {checked
                       ? step + 1 === active.questions.length
-                        ? "See my results"
-                        : "Next question"
-                      : "Check answer"}{" "}
+                        ? t("See my results")
+                        : t("Next question")
+                      : t("Check answer")}{" "}
                     <ArrowRight size={17} />
                   </button>
                 </div>
@@ -1375,7 +1498,7 @@ function App() {
           <span>
             Made for curious minds <span>✦</span>
           </span>
-          <span>Practice kindly. Grow confidently.</span>
+          <span>{t("Practice kindly. Grow confidently.")}</span>
         </footer>
       </main>
       {authOpen && (
@@ -1384,34 +1507,34 @@ function App() {
             <button
               className="close-modal"
               onClick={() => setAuthOpen(false)}
-              aria-label="Close"
+              aria-label={t("Close")}
             >
               <X size={20} />
             </button>
             <div className="auth-mark">✦</div>
-            <div className="eyebrow muted">YOUR LEARNING JOURNEY</div>
+            <div className="eyebrow muted">{t("YOUR LEARNING JOURNEY")}</div>
             <h2>
-              {authMode === "signup" ? "Create your account" : "Welcome back!"}
+              {authMode === "signup" ? t("Create your account") : t("Welcome back!")}
             </h2>
             <p>
               {authMode === "signup"
-                ? "Save your stars and keep learning on any device."
-                : "Sign in to see your learning progress."}
+                ? t("Save your stars and keep learning on any device.")
+                : t("Sign in to see your learning progress.")}
             </p>
             <form onSubmit={submitAuth}>
               {authMode === "signup" && (
                 <label>
-                  Display name{" "}
+                  {t("Display name")}{" "}
                   <input
                     name="display_name"
                     maxLength="40"
-                    placeholder="A nickname is fine"
+                    placeholder={t("A nickname is fine")}
                     required
                   />
                 </label>
               )}
               <label>
-                Email address
+                {t("Email address")}
                 <input
                   name="email"
                   type="email"
@@ -1421,7 +1544,7 @@ function App() {
                 />
               </label>
               <label>
-                Password
+                {t("Password")}
                 <input
                   name="password"
                   type="password"
@@ -1429,7 +1552,7 @@ function App() {
                     authMode === "signup" ? "new-password" : "current-password"
                   }
                   minLength="8"
-                  placeholder="At least 8 characters"
+                  placeholder={t("At least 8 characters")}
                   required
                 />
               </label>
@@ -1440,10 +1563,10 @@ function App() {
               )}
               <button className="primary auth-submit" disabled={busy}>
                 {busy
-                  ? "One moment…"
+                  ? t("One moment…")
                   : authMode === "signup"
-                    ? "Create account"
-                    : "Sign in"}{" "}
+                    ? t("Create account")
+                    : t("Sign in")}{" "}
                 <ArrowRight size={17} />
               </button>
             </form>
@@ -1455,12 +1578,11 @@ function App() {
               }}
             >
               {authMode === "signup"
-                ? "Already have an account? Sign in"
-                : "New here? Create an account"}
+                ? t("Already have an account? Sign in")
+                : t("New here? Create an account")}
             </button>
             <small className="privacy-note">
-              Use a nickname. For children, set up accounts with a parent or
-              teacher.
+              {t("Use a nickname. For children, set up accounts with a parent or teacher.")}
             </small>
           </div>
         </div>
@@ -1468,7 +1590,7 @@ function App() {
     </div>
   );
 }
-function LessonCard({ lesson, completed, onClick }) {
+function LessonCard({ lesson, completed, onClick, t }) {
   return (
     <button className="lesson-card" onClick={onClick}>
       <div className={`card-art ${lesson.color}`}>
@@ -1476,17 +1598,17 @@ function LessonCard({ lesson, completed, onClick }) {
         <span className="card-emoji">{lesson.icon}</span>
         {completed && (
           <span className="completed-badge">
-            <Check size={13} /> DONE
+            <Check size={13} /> {t("DONE")}
           </span>
         )}
-        <span className="card-type">{lesson.category}</span>
+        <span className="card-type">{lesson.grade ? `${t(lesson.grade)} · ` : ""}{t(lesson.category)}</span>
       </div>
       <div className="card-body">
         <div className="card-meta">
-          <span>{lesson.level}</span>
+          <span>{t(lesson.level)}</span>
           <span>
             <Clock3 size={13} />
-            {lesson.minutes} min
+            {lesson.minutes} {t("min")}
           </span>
         </div>
         <h3>{lesson.title}</h3>
